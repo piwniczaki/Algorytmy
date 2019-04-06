@@ -161,9 +161,17 @@ int main() {
 	// wyswietlanie macierzy
 	for (int i = 0; i < ilosc; i++) {
 		for (int j = 0; j < ilosc; j++) {
-			changecol(12);
-			cout << " " << tab[i][j];
-			changecol(7);
+			
+			if (tab[i][j] == 1)
+			{
+				changecol(12);
+				cout << " " << tab[i][j];
+				changecol(7);
+			}
+			else
+			{
+				cout << " " << tab[i][j];
+			}
 		}
 		cout << endl;
 	}
