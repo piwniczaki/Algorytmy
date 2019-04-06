@@ -1,0 +1,1 @@
+# Program z interpretacjami grafów
