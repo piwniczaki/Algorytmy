@@ -1,25 +1,50 @@
-#include <iostream>
+ï»¿#include <iostream>
+#include<windows.h>
 
 using std::cout;
 using std::cin;
 using std::endl;
 
-// funckcja sprawdza czy zostal wprowadzony legitny wybór
+//zmiana kolorkÃ³w
+void changecol(int num)
+{
+	HANDLE cz;
+	cz = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(cz, num);
+	//0 - czarny
+	//1 - niebieski
+	//2 - zielony
+	//3 - bÂ³Ãªkitny
+	//4 - czerwony
+	//5 - purpurowy
+	//6 - Â¿Ã³Â³ty
+	//7 - biaÂ³y
+	//8 - szary
+	//9 - jasnoniebieski
+	//10 - jasnozielony
+	//11 - jasnobÂ³Ãªkitny
+	//12 - jasnoczerwony
+	//13 - jasnopurpurowy
+	//14 - jasnoÂ¿Ã³Â³ty
+	//15 - jaskrawobiaÂ³y
+}
+
+// funckcja sprawdza czy zostal wprowadzony legitny wybÃ³r
 void poprawnosc_wyboru(int wybor) {
 	while (cin.fail() || wybor < 1 || wybor>2)
 	{
-		cout << "Twój wybór to: ";
+		cout << "TwÃ³j wybÃ³r to: ";
 		cin.clear();
 		cin.ignore(256, '\n');
 		cin >> wybor;
 	}
 }
 
-//fukcja sprawdza czy zostala wprowadzona poprawna liczba wierzcholków
+//fukcja sprawdza czy zostala wprowadzona poprawna liczba wierzcholkÃ³w
 void poprawnosc_ilosci_wierzcholkow(int ilosc) {
 	while (cin.fail() || ilosc < 1 || ilosc > 100)
 	{
-		cout << "Podaj ilosc wierzcholków w grafie: ";
+		cout << "Podaj ilosc wierzcholkÃ³w w grafie: ";
 		cin.clear();
 		cin.ignore(256, '\n');
 		cin >> ilosc;
@@ -37,21 +62,19 @@ void poprawnosc_ilosci_krawedzi(int ilosc) {
 	}
 }
 
-//funkcja sprawdza czy PIERWSZY wierzcholek miesci sie w zakresie <1, ilosc>
-void poprawnosc_wyboru_1_wierzcholka(int x, const int &ilosc) {
+//funkcja sprawdza czy wierzcholek miesci sie w zakresie <1, ilosc>
+void poprawnosc_wyboru_wierzcholka(int x, int tryb,const int &ilosc) {
 	while (cin.fail() || x < 1 || x > ilosc)
 	{
-		cout << "Podaj pierwszy wierzcholek: ";
-		cin.clear();
-		cin.ignore(256, '\n');
-		cin >> x;
-	}
-}
-//funkcja sprawdza czy DRUGI wierzcholek miesci sie w zakresie <1, ilosc>
-void poprawnosc_wyboru_2_wierzcholka(int x, const int &ilosc) {
-	while (cin.fail() || x < 1 || x > ilosc)
-	{
-		cout << "Podaj drugi wierzcholek: ";
+		if (tryb == 1)
+		{
+			cout << "Podaj pierwszy wierzcholek: ";
+		}
+		else
+		{
+			cout << "Podaj drugi wierzcholek: ";
+		}
+		
 		cin.clear();
 		cin.ignore(256, '\n');
 		cin >> x;
@@ -59,20 +82,20 @@ void poprawnosc_wyboru_2_wierzcholka(int x, const int &ilosc) {
 }
 
 int main() {
-	setlocale(LC_ALL, "polish"); //pozwala na uzywanie polskich znaków
+	setlocale(LC_ALL, "polish"); //pozwala na uzywanie polskich znakÃ³w
 
-								 // wybór grafu
+								 // wybÃ³r grafu
 	cout << "Czy twoj graf bedzie skierowany czy nieskierowany?" << endl;
 	cout << "1.SKIEROWANY" << endl;
 	cout << "2.NIESKIEROWANY" << endl;
-	cout << "Twój wybór to: ";
-	int wybor; // wybór grafu (-> / <->)
+	cout << "TwÃ³j wybÃ³r to: ";
+	int wybor; // wybÃ³r grafu (-> / <->)
 	cin >> wybor;
 	poprawnosc_wyboru(wybor); // sprawdzanie poprawnosci wyboru
 
-							  // ustalanie ilosci wierzcholków grafu
-	cout << "Podaj ilosc wierzcholków w grafie: ";
-	int ilosc; // ilosc wierzcholków w grafie
+							  // ustalanie ilosci wierzcholkÃ³w grafu
+	cout << "Podaj ilosc wierzcholkÃ³w w grafie: ";
+	int ilosc; // ilosc wierzcholkÃ³w w grafie
 	cin >> ilosc;
 	poprawnosc_ilosci_wierzcholkow(ilosc);
 
@@ -106,17 +129,17 @@ int main() {
 	}
 
 	cout << endl;
-	int x; // wspólrzedna x w macierzy
-	int y; // wspólrzedna y w macierzy
-	cout << "Podaj " << ilosc_k << " par wierzcholków które chcesz polaczyc z zakresu <1," << ilosc << ">" << endl;
+	int x; // wspÃ³lrzedna x w macierzy
+	int y; // wspÃ³lrzedna y w macierzy
+	cout << "Podaj " << ilosc_k << " par wierzcholkÃ³w ktÃ³re chcesz polaczyc z zakresu <1," << ilosc << ">" << endl;
 	for (int i = 0; i < ilosc_k; i++) {
-		cout << "Podaj pierwszy wierzcholek: "; 
-		cin >> x; 
-		poprawnosc_wyboru_1_wierzcholka(x, ilosc);
+		cout << "Podaj pierwszy wierzcholek: ";
+		cin >> x;
+		poprawnosc_wyboru_wierzcholka(x,1, ilosc);
 
 		cout << "Podaj drugi weerzcholek: ";
 		cin >> y;
-		poprawnosc_wyboru_2_wierzcholka(y, ilosc);
+		poprawnosc_wyboru_wierzcholka(y,2, ilosc);
 
 		if (wybor == 1) { // skierowany
 			if (tab[x - 1][y - 1] == 1)
@@ -136,23 +159,25 @@ int main() {
 
 	cout << endl;
 	// wyswietlanie macierzy
-	for (int i = 0; i < ilosc; i++){
-		for (int j = 0; j < ilosc; j++){
+	for (int i = 0; i < ilosc; i++) {
+		for (int j = 0; j < ilosc; j++) {
+			changecol(12);
 			cout << " " << tab[i][j];
+			changecol(7);
 		}
 		cout << endl;
 	}
 	cout << endl;
 
 	// Slowna reprezentacja macierzy
-	for (int i = 0; i < ilosc; i++){
+	for (int i = 0; i < ilosc; i++) {
 		cout << "Wierzcholek nr. " << i + 1 << " laczy sie z wierzcholkami: ";
-			for (int j = 0; j < 10; j++){
-				if (tab[i][j] == 1)
-					cout << j + 1 << " ";
-			}
-			cout << endl;
+		for (int j = 0; j < 10; j++) {
+			if (tab[i][j] == 1)
+				cout << j + 1 << " ";
 		}
+		cout << endl;
+	}
 
 	// uwolnienie 2 wymiarowej tablicy z pamieci
 	for (int i = 0; i < ilosc; ++i) {
