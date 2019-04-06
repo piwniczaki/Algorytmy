@@ -14,23 +14,23 @@ void changecol(int num)
 	//0 - czarny
 	//1 - niebieski
 	//2 - zielony
-	//3 - b³êkitny
+	//3 - blêkitny
 	//4 - czerwony
 	//5 - purpurowy
-	//6 - ¿ó³ty
-	//7 - bia³y
+	//6 - zólty
+	//7 - bialy
 	//8 - szary
 	//9 - jasnoniebieski
 	//10 - jasnozielony
-	//11 - jasnob³êkitny
+	//11 - jasnoblekitny
 	//12 - jasnoczerwony
 	//13 - jasnopurpurowy
-	//14 - jasno¿ó³ty
-	//15 - jaskrawobia³y
+	//14 - jasnozólty
+	//15 - jaskrawobialy
 }
 
 // funckcja sprawdza czy zostal wprowadzony legitny wybór
-void poprawnosc_wyboru(int wybor) {
+int poprawnosc_wyboru(int wybor) {
 	while (cin.fail() || wybor < 1 || wybor>2)
 	{
 		cout << "Twój wybór to: ";
@@ -38,10 +38,11 @@ void poprawnosc_wyboru(int wybor) {
 		cin.ignore(256, '\n');
 		cin >> wybor;
 	}
+	return wybor;
 }
 
 //fukcja sprawdza czy zostala wprowadzona poprawna liczba wierzcholków
-void poprawnosc_ilosci_wierzcholkow(int ilosc) {
+int poprawnosc_ilosci_wierzcholkow(int ilosc) {
 	while (cin.fail() || ilosc < 1 || ilosc > 100)
 	{
 		cout << "Podaj ilosc wierzcholków w grafie: ";
@@ -49,10 +50,11 @@ void poprawnosc_ilosci_wierzcholkow(int ilosc) {
 		cin.ignore(256, '\n');
 		cin >> ilosc;
 	}
+	return ilosc;
 }
 
 //fukcja sprawdza czy zostala wprowadzona poprawna liczba krawedzi
-void poprawnosc_ilosci_krawedzi(int ilosc) {
+int poprawnosc_ilosci_krawedzi(int ilosc) {
 	while (cin.fail() || ilosc < 1 || ilosc > 100)
 	{
 		cout << "Podaj ilosc krawedzi w grafie: ";
@@ -60,49 +62,47 @@ void poprawnosc_ilosci_krawedzi(int ilosc) {
 		cin.ignore(256, '\n');
 		cin >> ilosc;
 	}
+	return ilosc;
 }
 
 //funkcja sprawdza czy wierzcholek miesci sie w zakresie <1, ilosc>
-void poprawnosc_wyboru_wierzcholka(int x, int tryb,const int &ilosc) {
+int poprawnosc_wyboru_wierzcholka(int x, int tryb, const int &ilosc) {
 	while (cin.fail() || x < 1 || x > ilosc)
 	{
 		if (tryb == 1)
-		{
 			cout << "Podaj pierwszy wierzcholek: ";
-		}
-		else
-		{
+		else if (tryb=2)
 			cout << "Podaj drugi wierzcholek: ";
-		}
-		
+
 		cin.clear();
 		cin.ignore(256, '\n');
 		cin >> x;
 	}
+	return x;
 }
 
 int main() {
 	setlocale(LC_ALL, "polish"); //pozwala na uzywanie polskich znaków
 
-								 // wybór grafu
+	// wybór grafu
 	cout << "Czy twoj graf bedzie skierowany czy nieskierowany?" << endl;
 	cout << "1.SKIEROWANY" << endl;
 	cout << "2.NIESKIEROWANY" << endl;
 	cout << "Twój wybór to: ";
 	int wybor; // wybór grafu (-> / <->)
 	cin >> wybor;
-	poprawnosc_wyboru(wybor); // sprawdzanie poprawnosci wyboru
+	wybor = poprawnosc_wyboru(wybor); // sprawdzanie poprawnosci wyboru;
 
-							  // ustalanie ilosci wierzcholków grafu
+	 // ustalanie ilosci wierzcholków grafu
 	cout << "Podaj ilosc wierzcholków w grafie: ";
 	int ilosc; // ilosc wierzcholków w grafie
 	cin >> ilosc;
-	poprawnosc_ilosci_wierzcholkow(ilosc);
+	ilosc = poprawnosc_ilosci_wierzcholkow(ilosc);
 
 	cout << "Podaj ilosc krawedzi w grafie: ";
 	int ilosc_k; // ilosc krawedzi w grafie
 	cin >> ilosc_k;
-	poprawnosc_ilosci_krawedzi(ilosc_k);
+	ilosc_k = poprawnosc_ilosci_krawedzi(ilosc_k);
 
 	// deklaracja 2 wymiarowej tablicy dynamicznej
 	int **tab = new int*[ilosc];
@@ -135,11 +135,11 @@ int main() {
 	for (int i = 0; i < ilosc_k; i++) {
 		cout << "Podaj pierwszy wierzcholek: ";
 		cin >> x;
-		poprawnosc_wyboru_wierzcholka(x,1, ilosc);
+		x = poprawnosc_wyboru_wierzcholka(x, 1, ilosc);
 
 		cout << "Podaj drugi weerzcholek: ";
 		cin >> y;
-		poprawnosc_wyboru_wierzcholka(y,2, ilosc);
+		y = poprawnosc_wyboru_wierzcholka(y, 2, ilosc);
 
 		if (wybor == 1) { // skierowany
 			if (tab[x - 1][y - 1] == 1)
@@ -161,7 +161,7 @@ int main() {
 	// wyswietlanie macierzy
 	for (int i = 0; i < ilosc; i++) {
 		for (int j = 0; j < ilosc; j++) {
-			
+
 			if (tab[i][j] == 1)
 			{
 				changecol(12);
