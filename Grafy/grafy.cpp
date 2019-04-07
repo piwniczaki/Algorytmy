@@ -41,23 +41,16 @@ int poprawnosc_wyboru(int wybor) {
 	return wybor;
 }
 
-//fukcja sprawdza czy zostala wprowadzona poprawna liczba wierzcholków
-int poprawnosc_ilosci_wierzcholkow(int ilosc) {
+//fukcja sprawdza czy zostala wprowadzona poprawna liczba wierzcholków (tryb = 1)
+//fukcja sprawdza czy zostala wprowadzona poprawna liczba krawedzi (tryb = 2)
+int poprawnosc_ilosci(int ilosc, int tryb) {
 	while (cin.fail() || ilosc < 1 || ilosc > 100)
 	{
-		cout << "Podaj ilosc wierzcholków w grafie: ";
-		cin.clear();
-		cin.ignore(256, '\n');
-		cin >> ilosc;
-	}
-	return ilosc;
-}
-
-//fukcja sprawdza czy zostala wprowadzona poprawna liczba krawedzi
-int poprawnosc_ilosci_krawedzi(int ilosc) {
-	while (cin.fail() || ilosc < 1 || ilosc > 100)
-	{
-		cout << "Podaj ilosc krawedzi w grafie: ";
+		if (tryb == 1)
+			cout << "Podaj ilosc wierzcholków w grafie: ";
+		else if (tryb ==2)
+			cout << "Podaj ilosc krawedzi w grafie: ";
+		
 		cin.clear();
 		cin.ignore(256, '\n');
 		cin >> ilosc;
@@ -97,12 +90,12 @@ int main() {
 	cout << "Podaj ilosc wierzcholków w grafie: ";
 	int ilosc; // ilosc wierzcholków w grafie
 	cin >> ilosc;
-	ilosc = poprawnosc_ilosci_wierzcholkow(ilosc);
+	ilosc = poprawnosc_ilosci(ilosc, 1);
 
 	cout << "Podaj ilosc krawedzi w grafie: ";
 	int ilosc_k; // ilosc krawedzi w grafie
 	cin >> ilosc_k;
-	ilosc_k = poprawnosc_ilosci_krawedzi(ilosc_k);
+	ilosc_k = poprawnosc_ilosci(ilosc_k, 2);
 
 	// deklaracja 2 wymiarowej tablicy dynamicznej
 	int **tab = new int*[ilosc];
