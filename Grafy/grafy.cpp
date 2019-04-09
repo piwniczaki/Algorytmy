@@ -5,7 +5,7 @@ using std::cout;
 using std::cin;
 using std::endl;
 
-//zmiana kolorków
+// zmiana kolorków
 void changecol(int num)
 {
 	HANDLE cz;
@@ -41,8 +41,8 @@ int poprawnosc_wyboru(int wybor) {
 	return wybor;
 }
 
-//fukcja sprawdza czy zostala wprowadzona poprawna liczba wierzcholków (tryb = 1)
-//fukcja sprawdza czy zostala wprowadzona poprawna liczba krawedzi (tryb = 2)
+// fukcja sprawdza czy zostala wprowadzona poprawna liczba wierzcholków (tryb = 1)
+// fukcja sprawdza czy zostala wprowadzona poprawna liczba krawedzi (tryb = 2)
 int poprawnosc_ilosci(int ilosc, int tryb) {
 	while (cin.fail() || ilosc < 1 || ilosc > 100)
 	{
@@ -58,7 +58,17 @@ int poprawnosc_ilosci(int ilosc, int tryb) {
 	return ilosc;
 }
 
-//funkcja sprawdza czy wierzcholek miesci sie w zakresie <1, ilosc>
+// funkcja wyswietla jaki rodzaj grafu jest wyswietlany
+void jaki_graf(int wybor) {
+	if (wybor == 1) { // skierowany
+		cout << "GRAF SKIEROWANY" << endl;
+	}
+	else if (wybor == 2) { // nieskierowany
+		cout << "GRAF NIESKIEROWANY" << endl;
+	}
+}
+
+// funkcja sprawdza czy wierzcholek miesci sie w zakresie <1, ilosc>
 int poprawnosc_wyboru_wierzcholka(int x, int tryb, const int &ilosc) {
 	while (cin.fail() || x < 1 || x > ilosc)
 	{
@@ -130,7 +140,7 @@ int main() {
 		cin >> x;
 		x = poprawnosc_wyboru_wierzcholka(x, 1, ilosc);
 
-		cout << "Podaj drugi weerzcholek: ";
+		cout << "Podaj drugi wierzcholek: ";
 		cin >> y;
 		y = poprawnosc_wyboru_wierzcholka(y, 2, ilosc);
 
@@ -151,6 +161,8 @@ int main() {
 	}
 
 	cout << endl;
+	// wyświetlanie jaki to rodzaj grafu
+	jaki_graf(wybor);
 	// wyswietlanie macierzy
 	for (int i = 0; i < ilosc; i++) {
 		for (int j = 0; j < ilosc; j++) {
@@ -170,7 +182,7 @@ int main() {
 	}
 	cout << endl;
 
-	// Slowna reprezentacja macierzy
+	// slowna reprezentacja macierzy
 	for (int i = 0; i < ilosc; i++) {
 		cout << "Wierzcholek nr. " << i + 1 << " laczy sie z wierzcholkami: ";
 		for (int j = 0; j < 10; j++) {
