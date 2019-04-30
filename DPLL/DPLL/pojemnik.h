@@ -8,7 +8,7 @@ private:
 
 public:
 	Pojemnik(); //konstruktor
-				//	~Pojemnik(); // destruktor
+	//	~Pojemnik(); // destruktor
 
 public:
 	//settery
