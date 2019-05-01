@@ -4,7 +4,7 @@ private:
 	int _x; // pierwsza z 3 wylosowanych liczb
 	int _y; // druga z 3 wylosowanych liczb
 	int _z; // trzecia z 3 wylosowanych liczb
-	int _flag; // flaga
+	int _flag; // flaga -10 = FALSE, 10 = TRUE, 420 = wykorzystane
 
 public:
 	Pojemnik(); //konstruktor

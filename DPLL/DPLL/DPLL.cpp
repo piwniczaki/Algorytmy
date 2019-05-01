@@ -10,6 +10,8 @@ int main() {
 		tab[i] = generuj(temp);
 	}
 
+	zliczaj(tab);
+	cout << "Twoj set liczb do rozpatrzenia" << endl;
 	wyœwietl(tab);
 
 	system("PAUSE");

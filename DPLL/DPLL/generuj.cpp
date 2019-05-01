@@ -4,7 +4,7 @@
 Pojemnik generuj(Pojemnik temp) {
 	Pojemnik wiersz;
 	wiersz = temp;
-
+	
 	if (losowanie_2() == 1) {
 		wiersz.set_x((rand() % 10) * (-1));
 	}

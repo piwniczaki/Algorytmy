@@ -18,5 +18,3 @@ void wyœwietl(Pojemnik tab[]) {
 		cout << data.get_z() << endl;
 	}
 }
-
-/* Liczenie */

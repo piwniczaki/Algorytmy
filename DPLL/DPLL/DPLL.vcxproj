@@ -119,12 +119,14 @@
     <ClCompile Include="funkcje.cpp" />
     <ClCompile Include="generuj.cpp" />
     <ClCompile Include="pojemnik.cpp" />
+    <ClCompile Include="zliczanie.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="biblioteki.h" />
     <ClInclude Include="funkcje.h" />
     <ClInclude Include="generuj.h" />
     <ClInclude Include="pojemnik.h" />
+    <ClInclude Include="zliczanie.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

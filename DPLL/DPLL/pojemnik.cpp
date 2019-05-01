@@ -5,7 +5,7 @@ Pojemnik::Pojemnik() {
 	this->_x = 0;
 	this->_y = 0;
 	this->_z = 0;
-	this->_flag = -1;
+	this->_flag = -10;
 }
 
 //Pojemnik::~Pojemnik()
