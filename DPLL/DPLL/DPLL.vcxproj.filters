@@ -30,6 +30,15 @@
     <ClCompile Include="zliczanie.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Para.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="optymalizacja_startu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="biblioteki.h">
@@ -45,6 +54,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="zliczanie.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="para.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DPLL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="optymalizacja_startu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

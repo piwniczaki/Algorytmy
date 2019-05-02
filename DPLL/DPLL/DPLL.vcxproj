@@ -118,13 +118,19 @@
     <ClCompile Include="DPLL.cpp" />
     <ClCompile Include="funkcje.cpp" />
     <ClCompile Include="generuj.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="optymalizacja_startu.cpp" />
+    <ClCompile Include="Para.cpp" />
     <ClCompile Include="pojemnik.cpp" />
     <ClCompile Include="zliczanie.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="biblioteki.h" />
+    <ClInclude Include="DPLL.h" />
     <ClInclude Include="funkcje.h" />
     <ClInclude Include="generuj.h" />
+    <ClInclude Include="optymalizacja_startu.h" />
+    <ClInclude Include="para.h" />
     <ClInclude Include="pojemnik.h" />
     <ClInclude Include="zliczanie.h" />
   </ItemGroup>

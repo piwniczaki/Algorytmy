@@ -3,4 +3,10 @@
 
 int losowanie_2();
 
-void wyœwietl(Pojemnik tab[]);
+int generuj_z(Pojemnik wiersz);
+
+void wyswietl(Pojemnik tab[]);
+
+int isempty(int tab[]);
+
+void podmianka(int index, Pojemnik start[]);

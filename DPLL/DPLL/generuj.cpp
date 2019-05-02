@@ -1,9 +1,6 @@
 #include"biblioteki.h"
-#include"generuj.h"
 
-Pojemnik generuj(Pojemnik temp) {
-	Pojemnik wiersz;
-	wiersz = temp;
+Pojemnik generuj(Pojemnik wiersz) {
 	
 	if (losowanie_2() == 1) {
 		wiersz.set_x((rand() % 10) * (-1));
@@ -25,18 +22,7 @@ Pojemnik generuj(Pojemnik temp) {
 			}
 	}
 
-	if (losowanie_2() == 1) {
-		wiersz.set_z((rand() % 10) * (-1));
-			if (wiersz.get_z() == wiersz.get_x() || wiersz.get_z() == wiersz.get_y()) {
-				wiersz.set_y((rand() % 10));
-			}
-	}
-	else {
-		wiersz.set_z((rand() % 10));
-			if (wiersz.get_z() == wiersz.get_x() || wiersz.get_z() == wiersz.get_y()) {
-				wiersz.set_y((rand() % 10));
-			}
-	}
+	wiersz.set_z(generuj_z(wiersz));
 
 	return wiersz;
 }
