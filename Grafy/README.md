@@ -3,8 +3,8 @@
 Done:
 - Grafy skierowane interpretacja macierzowa
 - Grafy nieskierowane iterpretacja macierzowa
+- Konwersja do innej interpretacji
 
 To do:
-- Konwersja do innej interpretacji
 - Dwudzielność
 - Spójnosć

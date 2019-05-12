@@ -7,7 +7,6 @@
 #include"generuj.h"
 #include"para.h"
 #include"zliczanie.h"
-#include"optymalizacja_startu.h"
 
 #include"DPLL.h"
 

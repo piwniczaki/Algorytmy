@@ -1,4 +1,4 @@
 #pragma once
 #include"biblioteki.h"
 
-void DPLL();
+void DPLL(int flag);

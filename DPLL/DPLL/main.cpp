@@ -2,8 +2,9 @@
 
 int main() {
 	srand(time(NULL));
+	int flag = 0;
 
-	DPLL();
+	DPLL(flag);
 
 	system("PAUSE");
 	return 0;
