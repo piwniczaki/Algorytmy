@@ -6,31 +6,6 @@ int losowanie_2() {
 	return x;
 }
 
-/* generuje z rozne od x i y */
-int generuj_z(Pojemnik wiersz) {
-	Pojemnik tmp = wiersz;
-	if (losowanie_2() == 1) {
-		wiersz.set_z((rand() % 10) *(-1));
-		if (wiersz.get_z() == wiersz.get_x()) {
-			generuj_z(wiersz);
-		}
-		if (wiersz.get_z() == wiersz.get_y()) {
-			generuj_z(wiersz);
-		}
-		return wiersz.get_z();
-	}
-	else {
-		wiersz.set_z((rand() % 10));
-		if (wiersz.get_z() == wiersz.get_x()) {
-			generuj_z(wiersz);
-		}
-		if (wiersz.get_z() == wiersz.get_y()) {
-			generuj_z(wiersz);
-		}
-		return wiersz.get_z();
-	}
-}
-
 /* Wyswietlanie tablicy obiektow */
 void wyswietl(Pojemnik tab[]) {
 	for (int i = 0; i < 25; i++) {
@@ -60,19 +35,41 @@ int isempty(int tab[]) {
 }
 
 /* podmienia na */
-void podmianka(int index, Pojemnik start[]) {
+Pojemnik podmianka(int index, Pojemnik start[]) {
+
+	cout << endl << index << endl;
+
 	for (int i = 0; i < 25; i++) {
 		if (start->get_x() == index && start->get_y() == index) {
-			if (start[i].get_z() < 0) start[i].set_z(-10);
-			if (start[i].get_z() > 0) start[i].set_z(10);
+			if (start[i].get_z() < 0) {
+				start[i].set_z(-10);
+				start[i].set_flag_z(21);
+			}
+			if (start[i].get_z() > 0) {
+				start[i].set_z(10);
+				start[i].set_flag_z(69);
+			}
 		}
 		else if (start->get_x() == index && start->get_z() == index) {
-			if (start[i].get_y() < 0) start[i].set_y(-10);
-			if (start[i].get_y() > 0) start[i].set_y(10);
+			if (start[i].get_y() < 0) {
+				start[i].set_y(-10);
+				start[i].set_flag_y(21);
+			}
+			if (start[i].get_y() > 0) {
+				start[i].set_y(10);
+				start[i].set_flag_y(69);
+			}
 		}
 		else if (start->get_y() == index && start->get_z() == index) {
-			if (start[i].get_x() < 0) start[i].set_x(-10);
-			if (start[i].get_x() > 0) start[i].set_x(10);
+			if (start[i].get_x() < 0) {
+				start[i].set_x(-10);
+				start[i].set_flag_x(21);
+			}
+			if (start[i].get_x() > 0) {
+				start[i].set_x(10);
+				start[i].set_flag_x(69);
+			}
 		}
 	}
+	return start;
 }
