@@ -4,6 +4,7 @@
 
 #include"pojemnik.h"
 #include"funkcje.h"
+#include"podmianka.h"
 #include"generuj.h"
 #include"para.h"
 #include"zliczanie.h"

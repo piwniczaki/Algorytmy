@@ -30,10 +30,13 @@
     <ClCompile Include="zliczanie.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Para.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="podmianka.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="para.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -57,6 +60,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DPLL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="podmianka.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
