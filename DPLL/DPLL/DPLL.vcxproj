@@ -119,7 +119,8 @@
     <ClCompile Include="funkcje.cpp" />
     <ClCompile Include="generuj.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Para.cpp" />
+    <ClCompile Include="para.cpp" />
+    <ClCompile Include="podmianka.cpp" />
     <ClCompile Include="pojemnik.cpp" />
     <ClCompile Include="zliczanie.cpp" />
   </ItemGroup>
@@ -129,6 +130,7 @@
     <ClInclude Include="funkcje.h" />
     <ClInclude Include="generuj.h" />
     <ClInclude Include="para.h" />
+    <ClInclude Include="podmianka.h" />
     <ClInclude Include="pojemnik.h" />
     <ClInclude Include="zliczanie.h" />
   </ItemGroup>

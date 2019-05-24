@@ -22,11 +22,12 @@ void DPLL(int flaga) {
 	Para max = zliczaj(tab);
 	cout << "Najczesciej wystepuje index: " << max.get_key()
 		 << ", wystepuje on " << max.get_value() << " razy" << endl;
-
-
+	
+	Pojemnik* ptr = &tab[0];
+	//podmianka(max.get_key(), tab);
+	podmianka(max.get_key(), ptr);
 
 	cout << "______________________________" << endl;
 	cout << "Twoj set liczb do rozpatrzenia" << endl;
 	wyswietl(tab); cout << endl;
-
 }
